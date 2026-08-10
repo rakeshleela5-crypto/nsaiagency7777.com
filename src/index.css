@@ -1,0 +1,278 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════
+   Design Tokens & CSS Custom Properties
+   ═══════════════════════════════════════════ */
+:root {
+  --bg-primary: #050505;
+  --bg-card: #121212;
+  --gold: #FFD700;
+  --amber: #FFB300;
+  --gold-dim: rgba(255, 215, 0, 0.15);
+  --gold-glow: rgba(255, 215, 0, 0.4);
+  --gold-glow-strong: rgba(255, 215, 0, 0.6);
+  --text-primary: #f0f0f0;
+  --text-secondary: #a0a0a0;
+  --text-muted: #666;
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* ═══════════════════════════════════════════
+   Global Resets
+   ═══════════════════════════════════════════ */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ═══════════════════════════════════════════
+   Scrollbar Styling
+   ═══════════════════════════════════════════ */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gold-dim);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-glow);
+}
+
+/* ═══════════════════════════════════════════
+   Glassmorphism Utility
+   ═══════════════════════════════════════════ */
+.glass {
+  background: rgba(18, 18, 18, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 215, 0, 0.08);
+}
+
+.glass-strong {
+  background: rgba(18, 18, 18, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 215, 0, 0.12);
+}
+
+/* ═══════════════════════════════════════════
+   Neon Glow Effects
+   ═══════════════════════════════════════════ */
+.neon-glow {
+  box-shadow:
+    0 0 15px rgba(255, 215, 0, 0.3),
+    0 0 30px rgba(255, 215, 0, 0.15),
+    0 0 60px rgba(255, 215, 0, 0.05);
+}
+
+.neon-glow-strong {
+  box-shadow:
+    0 0 20px rgba(255, 215, 0, 0.5),
+    0 0 40px rgba(255, 215, 0, 0.25),
+    0 0 80px rgba(255, 215, 0, 0.1);
+}
+
+.text-glow {
+  text-shadow:
+    0 0 10px rgba(255, 215, 0, 0.5),
+    0 0 20px rgba(255, 215, 0, 0.3),
+    0 0 40px rgba(255, 215, 0, 0.15);
+}
+
+/* ═══════════════════════════════════════════
+   Keyframe Animations
+   ═══════════════════════════════════════════ */
+@keyframes pulse-gold {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.6), 0 0 60px rgba(255, 215, 0, 0.2);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-pulse-gold {
+  animation: pulse-gold 3s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent 0%, var(--gold-dim) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════
+   Button Styles
+   ═══════════════════════════════════════════ */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background: linear-gradient(135deg, var(--gold), var(--amber));
+  color: #050505;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  letter-spacing: 0.02em;
+}
+
+.btn-gold:hover {
+  transform: scale(1.08) translateY(-4px);
+  box-shadow:
+    0 0 25px rgba(255, 215, 0, 0.6),
+    0 0 50px rgba(255, 215, 0, 0.3);
+}
+
+.btn-gold:active {
+  transform: scale(0.95);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background: transparent;
+  color: var(--gold);
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 0.95rem;
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  letter-spacing: 0.02em;
+}
+
+.btn-outline:hover {
+  background: var(--gold-dim);
+  box-shadow: 
+    0 0 25px rgba(255, 215, 0, 0.4),
+    inset 0 0 15px rgba(255, 215, 0, 0.2);
+  transform: scale(1.08) translateY(-4px);
+}
+
+.btn-outline:active {
+  transform: scale(0.95);
+}
+
+/* ═══════════════════════════════════════════
+   Ultra Hover Animations (Boxes & Cards)
+   ═══════════════════════════════════════════ */
+.ultra-hover {
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  will-change: transform, box-shadow, border-color;
+  position: relative;
+}
+
+.ultra-hover:hover {
+  transform: scale(1.05) translateY(-8px) !important;
+  box-shadow: 
+    0 0 35px rgba(255, 215, 0, 0.35), 
+    0 15px 40px rgba(0, 0, 0, 0.6) !important;
+  border-color: rgba(255, 215, 0, 0.6) !important;
+  z-index: 10;
+}
+
+.ultra-hover:active {
+  transform: scale(0.96) !important;
+  box-shadow: 
+    0 0 15px rgba(255, 215, 0, 0.5) !important;
+}
+
+/* ═══════════════════════════════════════════
+   Section Utilities
+   ═══════════════════════════════════════════ */
+.section-padding {
+  padding: 6rem 2rem;
+}
+
+.section-heading {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  background: linear-gradient(135deg, var(--gold), var(--amber), #fff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+
+.section-subheading {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto 3rem;
+}
+
+.gold-divider {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--amber));
+  border-radius: 2px;
+  margin: 1rem auto 2rem;
+}
+
+/* ═══════════════════════════════════════════
+   Grid Background Pattern
+   ═══════════════════════════════════════════ */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255, 215, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 215, 0, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
