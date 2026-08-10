@@ -70,7 +70,7 @@ export default function Solutions() {
     <section id="solutions" className="section-padding grid-bg" style={{
       position: 'relative',
     }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', textAlign: 'center' }}>
+      <div className="reveal" style={{ maxWidth: '1200px', margin: '0 auto', textAlign: 'center' }}>
         <h2 className="section-heading">Our Solutions</h2>
         <div className="gold-divider" />
         <p className="section-subheading">

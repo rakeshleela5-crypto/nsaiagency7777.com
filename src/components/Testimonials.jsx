@@ -67,7 +67,7 @@ export default function Testimonials() {
     <section id="testimonials" className="section-padding grid-bg" style={{
       overflow: 'hidden',
     }}>
-      <div style={{ maxWidth: '1100px', margin: '0 auto', textAlign: 'center' }}>
+      <div className="reveal" style={{ maxWidth: '1100px', margin: '0 auto', textAlign: 'center' }}>
         <h2 className="section-heading">Client Voices</h2>
         <div className="gold-divider" />
         <p className="section-subheading">

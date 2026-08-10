@@ -91,7 +91,7 @@ export default function Contact() {
         className="contact-grid"
       >
         {/* Left: Info */}
-        <div className="contact-left" style={{ opacity: 0 }}>
+        <div className="contact-left reveal-left" style={{ opacity: 0 }}>
           <h2 className="section-heading" style={{ textAlign: 'left' }}>
             Let's Connect
           </h2>

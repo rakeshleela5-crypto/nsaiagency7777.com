@@ -85,7 +85,7 @@ export default function About() {
         className="about-grid"
       >
         {/* Left: Text */}
-        <div className="about-text" style={{ opacity: 0 }}>
+        <div className="about-text reveal-left" style={{ opacity: 0 }}>
           <h2 className="section-heading" style={{ textAlign: 'left' }}>
             Why NSAIAgency7777?
           </h2>

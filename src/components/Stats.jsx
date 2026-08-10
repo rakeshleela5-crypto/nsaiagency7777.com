@@ -75,7 +75,7 @@ export default function Stats() {
         pointerEvents: 'none',
       }} />
 
-      <div style={{ maxWidth: '1100px', margin: '0 auto', textAlign: 'center' }}>
+      <div className="reveal" style={{ maxWidth: '1100px', margin: '0 auto', textAlign: 'center' }}>
         <h2 className="section-heading">Results That Speak</h2>
         <div className="gold-divider" />
         <p className="section-subheading">
